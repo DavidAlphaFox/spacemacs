@@ -1,0 +1,9120 @@
+<!--
+  Practicalli Custom blocks
+
+  Overrides
+     - announce
+-->
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Practical guide to Clojure development with Spacemacs">
+      
+      
+        <meta name="author" content="Practicalli">
+      
+      
+        <link rel="canonical" href="https://practical.li/spacemacs/reference/structural-editing/smartparens-cheatsheet/">
+      
+      
+        <link rel="prev" href="../../clojure-lsp/lsp-variables-reference/">
+      
+      
+        <link rel="next" href="../../keybindings/">
+      
+      
+      <link rel="icon" href="../../../assets/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Smartparens cheatsheet - Practicalli Spacemacs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-YBK519HFM6"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-YBK519HFM6",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-YBK519HFM6",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Smartparens cheatsheet - Practicalli Spacemacs" >
+      
+        <meta  property="og:description"  content="Practical guide to Clojure development with Spacemacs" >
+      
+        <meta  property="og:image"  content="https://practical.li/spacemacs/assets/images/social/reference/structural-editing/smartparens-cheatsheet.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://practical.li/spacemacs/reference/structural-editing/smartparens-cheatsheet/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Smartparens cheatsheet - Practicalli Spacemacs" >
+      
+        <meta  name="twitter:description"  content="Practical guide to Clojure development with Spacemacs" >
+      
+        <meta  name="twitter:image"  content="https://practical.li/spacemacs/assets/images/social/reference/structural-editing/smartparens-cheatsheet.png" >
+      
+    
+    
+   <link href="../../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="purple" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#smartparens-cheatsheet" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+        <aside class="md-banner">
+          <div class="md-banner__inner md-grid md-typeset">
+            
+              <button class="md-banner__button md-icon" aria-label="Don't show this again">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+              </button>
+            
+            
+
+<a href="https://practical.li/clojure">Practicalli Clojure</a> has migrated to MkDocs
+
+
+          </div>
+          
+            <script>var el=document.querySelector("[data-md-component=announce]");if(el){var content=el.querySelector(".md-typeset");__md_hash(content.innerHTML)===__md_get("__announce")&&(el.hidden=!0)}</script>
+          
+        </aside>
+      
+    </div>
+    
+    
+      <!-- Determine classes -->
+   
+
+<!-- Header -->
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <!-- Link to home -->
+
+    <!-- Button to open drawer -->
+    <label class="md-header__button md-icon" for="__drawer">
+       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+
+    <!-- Custom: Link to Practical.li -->
+    <a
+      href="https://practical.li"
+      title="https://practical.li"
+      class="md-header__button md-logo"
+      aria-label="https://practical.li"
+      data-md-component="logo"
+      target="_blank"
+    >
+      
+  <img src="../../../assets/images/practicalli-logo.png" alt="logo">
+
+    </a>
+
+    <!-- Header title -->
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <a
+            href="https://practical.li/spacemacs/"
+            title="Practicalli Spacemacs"
+            aria-label="Practicalli Spacemacs"
+          >
+            <span class="md-ellipsis"> Practicalli Spacemacs </span>
+          </a>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+             Smartparens cheatsheet 
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Color palette toggle -->
+     
+    <!-- Added to support header.html partial -->
+<!-- - no changes applied -->
+
+<!-- Color palette toggle -->
+<form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input
+      class="md-option"
+      data-md-color-media="(prefers-color-scheme: light)"
+      data-md-color-scheme="default"
+      data-md-color-primary="purple"
+      data-md-color-accent="deep-purple"
+      
+        aria-label="Switch to dark mode"
+      
+      type="radio"
+      name="__palette"
+      id="__palette_1"
+    />
+    
+      <label
+        class="md-header__button md-icon"
+        title="Switch to dark mode"
+        for="__palette_2"
+        hidden
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input
+      class="md-option"
+      data-md-color-media="(prefers-color-scheme: dark)"
+      data-md-color-scheme="slate"
+      data-md-color-primary="deep-purple"
+      data-md-color-accent="purple"
+      
+        aria-label="Switch to light mode"
+      
+      type="radio"
+      name="__palette"
+      id="__palette_2"
+    />
+    
+      <label
+        class="md-header__button md-icon"
+        title="Switch to light mode"
+        for="__palette_1"
+        hidden
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>  
+
+    <!-- Site language selector -->
+    
+
+    <!-- Button to open search modal -->
+    
+    <label class="md-header__button md-icon" for="__search">
+       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+    </label>
+
+    <!-- Search interface -->
+    <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
+
+    <!-- Repository information -->
+    
+    <div class="md-header__source"><a href="https://github.com/practicalli/spacemacs/" title="Go to repository" class="md-source" data-md-component="source" target="_blank">
+    <div class="md-source__icon md-icon">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+    </div>
+    <div class="md-source__repository">
+        GitHub
+    </div>
+</a></div>
+    
+  </nav>
+
+  <!-- Navigation tabs (sticky) -->
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Practicalli Spacemacs" class="md-nav__button md-logo" aria-label="Practicalli Spacemacs" data-md-component="logo">
+      
+  <img src="../../../assets/images/practicalli-logo.png" alt="logo">
+
+    </a>
+    Practicalli Spacemacs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/practicalli/spacemacs/" title="Go to repository" class="md-source" data-md-component="source" target="_blank">
+    <div class="md-source__icon md-icon">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+    </div>
+    <div class="md-source__repository">
+        GitHub
+    </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../.." class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1" id="__nav_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Introduction
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduction/repl-workflow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    REPL Workflow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../introduction/why-spacemacs/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Why Spacemacs
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Why Spacemacs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduction/why-spacemacs/extensive-language-support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Extensive Languages
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduction/why-spacemacs/mnemonic-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mneomic Menus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduction/why-spacemacs/states/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Multi-modal Editing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduction/why-spacemacs/layers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Layer Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduction/why-spacemacs/clojure-layer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Clojure Support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduction/why-spacemacs/structural-editing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Structural Editing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduction/why-spacemacs/helm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Selection Narrowing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduction/why-spacemacs/project-file-navigation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project and File Navigation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduction/why-spacemacs/layouts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Layouts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-mini-cheatsheet/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mini-cheatsheet
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduction/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Contributing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduction/writing-tips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Writing Tips
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduction/additional-resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Resources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../install-spacemacs/pre-install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pre-install
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../install-spacemacs/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Install
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Install
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../install-spacemacs/manual-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Manual Configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../install-spacemacs/clojure-layer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Clojure Layer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../install-spacemacs/enhance-clojure-experience/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Enhance Clojure
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_4">
+            <span class="md-nav__icon md-icon"></span>
+            Enhance Clojure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../install-spacemacs/enhance-clojure-experience/smartparens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Smartparens
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../install-spacemacs/enhance-clojure-experience/evil-structural-editing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Evil Structural Editing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../install-spacemacs/enhance-clojure-experience/clj-kondo-via-lsp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Clj-kondo server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../install-spacemacs/clojure-lsp/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Clojure LSP
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_5">
+            <span class="md-nav__icon md-icon"></span>
+            Clojure LSP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../install-spacemacs/clojure-lsp/configure-lsp-and-cider/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure LSP and Cider
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../install-spacemacs/clojure-lsp/snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Clojure LSP snippets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../install-spacemacs/change-font/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Font
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../install-spacemacs/maximised-full-screen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Full Screen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../install-spacemacs/themes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Themes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../install-spacemacs/line-numbers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Line Numbers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../install-spacemacs/emacsclient-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Start Emacs Instantly
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../install-spacemacs/emacsclient-git-commit-messages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Editor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../install-spacemacs/update/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Update Spacemacs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../install-spacemacs/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Troubleshoot
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../spacemacs-basics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Spacemacs Basics
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Spacemacs Basics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/emacs-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Emacs Basics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../spacemacs-basics/working-with-projects/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_3">
+            <span class="md-nav__icon md-icon"></span>
+            Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/working-with-projects/dird/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    dired Emacs directory editor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/working-with-projects/layouts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Layouts and Workspaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/working-with-projects/managing-buffers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Buffer management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/working-with-projects/managing-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Managing Windows
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/working-with-projects/open-and-create-files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Open and create Files &amp; directories
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/working-with-projects/projectile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Projectile - project specific commands
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/working-with-projects/ranger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Ranger file manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/working-with-projects/searching-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Searching Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/working-with-projects/tidying-up-buffers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tidying up buffers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/working-with-projects/treemacs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Treemacs - Visualise your project structure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/visual-select/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Visual Select
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/spell-checking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spell checking in Spacemacs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../spacemacs-basics/evil/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Evil Basics
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Evil Basics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/evil/editing-states/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Evil editing states
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/vim-style/key-binding-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Evil Keybinding Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/vim-style/speaking-evil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Speaking Evil
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/vim-style/vim-quick-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Evil Quick Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/vim-style/vim-tips-for-developers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vim editing for Clojure developers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/evil-g-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Evil G menu
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/evil-z-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Evil Z menu
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../spacemacs-basics/evil-tools/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Evil Tools
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5_9" id="__nav_5_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_9">
+            <span class="md-nav__icon md-icon"></span>
+            Evil Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/evil-tools/helm-swoop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Helm-swoop
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/evil-tools/iedit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Editing with Vim and iedit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/evil-tools/iedit-in-action/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    iedit in action
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/evil-tools/narrowing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Narrowing - very selective editing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/evil-tools/replacing-text-across-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Replacing text across projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/evil-tools/multiple-cursors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Multiple Cursors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../clojure-development/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Clojure
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Clojure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../clojure-repl/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    REPL
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_2">
+            <span class="md-nav__icon md-icon"></span>
+            REPL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../clojure-repl/connect-to-repl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Connect to a Clojure REPL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../clojure-repl/connect-to-remote-repl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Connect to Remote REPL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../clojure-repl/jack-in-to-repl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cider Jack-in
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../clojure-repl/portal-data-visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Portal data visualization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../clojure-repl/clojurescript-repl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ClojureScript projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../clojure-repl/refresh-repl-state/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Refresh REPL State
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../clojure-repl/component-lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Component Lifecycle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../clojure-repl/clear-repl-buffer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Clear REPL Buffer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../clojure-development/project-configuration/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Project Config
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_3" id="__nav_6_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_3">
+            <span class="md-nav__icon md-icon"></span>
+            Project Config
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../clojure-development/project-configuration/monorepo-nested-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Monorepo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../documentation/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Documentation
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_4" id="__nav_6_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_4">
+            <span class="md-nav__icon md-icon"></span>
+            Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../documentation/comments/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Comments
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../documentation/apropos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apropos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../documentation/cider-doc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cider-doc
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../documentation/javadoc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Javadoc
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../evaluating-clojure/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Evaluate Clojure
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_5" id="__nav_6_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_5">
+            <span class="md-nav__icon md-icon"></span>
+            Evaluate Clojure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../evaluating-clojure/expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Expressions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../evaluating-clojure/inspect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inspect Values
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../evaluating-clojure/interrupt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Interrupt Eval
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../evaluating-clojure/undefine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Remove Eval
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../evaluating-clojure/enlighten/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Intermediate values
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../evaluating-clojure/macro-expand/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Macro Expand
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../evaluating-clojure/evaluate-in-repl-buffer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Evaluate in the REPL Buffer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../testing/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Testing
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_6" id="__nav_6_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_6">
+            <span class="md-nav__icon md-icon"></span>
+            Testing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../testing/kaocha-test-runner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Kaocha Test Runner
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../testing/unit-testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unit Testing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../testing/unit-testing/cider-test-deps-edn-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure Cider Test runner
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../testing/unit-testing/writing-unit-tests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Writing Unit Tests with clojure.test
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../testing/unit-testing/running-tests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Running unit tests in Cider
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../testing/unit-testing/re-run-tests-from-test-report-buffer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Re run tests from test report buffer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../testing/unit-testing/refactor-unit-tests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Refactor Unit Tests
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../testing/unit-testing/configure-cider-test-runner/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure CIDER test runner
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../navigating-code/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Navigating Code
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_7" id="__nav_6_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_7">
+            <span class="md-nav__icon md-icon"></span>
+            Navigating Code
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../navigating-code/expressions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Expressions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../navigating-code/markers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Markers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../navigating-code/namespaces/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Namespaces
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../navigating-code/names-symbols/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Symbols
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../navigating-code/function-definitions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../navigating-code/java-definitions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Java
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../navigating-code/code-folding/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Code Folding
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../navigating-code/find-usages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Find Uses
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../structural-editing/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Structural Editing
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_8" id="__nav_6_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_8">
+            <span class="md-nav__icon md-icon"></span>
+            Structural Editing
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../structural-editing/smartparens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Smartparens
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../structural-editing/cleverparens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Evil Cleverparens
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_8_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../structural-editing/lisp-state/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Lisp State
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_8_4" id="__nav_6_8_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_8_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_8_4">
+            <span class="md-nav__icon md-icon"></span>
+            Lisp State
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../structural-editing/lisp-state/wrap-unwrap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Wrap Unrap
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../structural-editing/lisp-state/slurp-barf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Slurp Barf
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../structural-editing/lisp-state/deleting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Deleting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../structural-editing/lisp-state/raising/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Raising
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../snippets/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Snippets
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_9" id="__nav_6_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_9">
+            <span class="md-nav__icon md-icon"></span>
+            Snippets
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_9_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../snippets/clojure-lsp/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Clojure LSP
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_9_2" id="__nav_6_9_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_9_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_9_2">
+            <span class="md-nav__icon md-icon"></span>
+            Clojure LSP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../snippets/clojure-lsp/custom-snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Custom snippets for Clojure LSP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../snippets/clojure-lsp/practicalli-snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Practicalli Snippets for Clojure LSP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_9_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../snippets/yasnippets/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Yasnippets
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_9_3" id="__nav_6_9_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_6_9_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_9_3">
+            <span class="md-nav__icon md-icon"></span>
+            Yasnippets
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../snippets/yasnippets/built-in-snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Built in snippets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../snippets/yasnippets/clojure-snippets-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Clojure snippets reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../snippets/yasnippets/create-snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create snippets from existing text
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../snippets/yasnippets/practicalli-snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Practicalli Clojure mode Yasnippets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../snippets/yasnippets/writing-snippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Yasnippets Custom Snippets
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_10" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../refactor/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Refactor
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_10" id="__nav_6_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_10">
+            <span class="md-nav__icon md-icon"></span>
+            Refactor
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../refactor/functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Function
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../refactor/namespace/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Namespace
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../refactor/project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../refactor/clojure-mode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Clojure Mode
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../refactor/clojure-lsp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Clojure LSP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_11" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../debug-clojure/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Debug
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_11" id="__nav_6_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_11">
+            <span class="md-nav__icon md-icon"></span>
+            Debug
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../debug-clojure/understanding-errors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Understand Errors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../debug-clojure/format-error-messages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Format Errors
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../debug-clojure/inspect-values/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Inspect values
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../debug-clojure/cider-debug/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cider debug
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../debug-clojure/classpath-issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Classpath Issues
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../debug-clojure/core-async/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    core-async
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../debug-clojure/sayid-debug/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Sayid Debug
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_12" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../improving-code/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Code Quality
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6_12" id="__nav_6_12_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_12">
+            <span class="md-nav__icon md-icon"></span>
+            Code Quality
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../improving-code/live-linting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Live linting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../improving-code/batch-linting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Batch Linting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../improving-code/idiomatic-code-checking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Idiomatic code with Kibit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../improving-code/formatting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Formatting Code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../source-control/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Source Control
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Source Control
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/configure-layers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Layer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/git-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Config
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/forge-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Forge Config
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/github-clone/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GitHub Clone
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../source-control/magit/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Magit Git Client
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_6" id="__nav_7_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_6">
+            <span class="md-nav__icon md-icon"></span>
+            Magit Git Client
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/create-local-repository/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create a local Git repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/list-local-repositories/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    List your local Git repositories
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/status/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Magit Status
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/branching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Branching in Magit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/staging-changes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Staging changes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/stashing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Stashing changes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/commit-changes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Committing changes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/tag-commit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tag a commit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/timemachine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git Timemachine
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/reset-commit-history/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Reset Commit History
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/interactive-rebasing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Interactive Rebasing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/cherry-picking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cherry Picking commits
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/blame/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Reviewing Commits with Git Blame
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/clean-up-magit-sessions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cleaning up Magit sessions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/version-highlighting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Highlight Version Control Changes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_6_17" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../source-control/magit/remote-repositories/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Remote Repository
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_6_17" id="__nav_7_6_17_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_6_17_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_6_17">
+            <span class="md-nav__icon md-icon"></span>
+            Remote Repository
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/remote-repositories/add-remote/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Add remote repository to local repository
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/remote-repositories/checkout-remote-branch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Magit checkout remote branches
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/remote-repositories/clone/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Clone remote repositories
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/remote-repositories/configure-default-push/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure default push remote branch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/remote-repositories/configure-default-upstream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure default upstream remote branch
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/remote-repositories/pull-changes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Pull Changes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/remote-repositories/push-changes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Push Changes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/remote-repositories/try-pull-requests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Try Pull Requests with Magit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_6_18" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../source-control/magit/forge/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Magit Forge
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7_6_18" id="__nav_7_6_18_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_6_18_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_6_18">
+            <span class="md-nav__icon md-icon"></span>
+            Magit Forge
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/forge/add-repository-to-database/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Add Repository to Database
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/forge/forks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Remote Fork
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/forge/issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Manage Issues
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../source-control/magit/forge/pull-requests/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Manage Pull Requests
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../markdown-mode/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Markdown
+    
+  </span>
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Markdown
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../org-mode/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Org-mode
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Org-mode
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../org-mode/headings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Org-mode Headings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../org-mode/lists-and-checkboxes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lists and Checkboxes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../org-mode/linking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Linking to files and websites
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../org-mode/todo-states/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Org-mode TODO states
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../org-mode/tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Org-mode Tables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../org-mode/code-blocks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Org blocks - source code and more
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../org-mode/org-mode-tweaks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Org-mode tweaks
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../org-mode/org-journal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Org Journal
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../org-mode/yasnippets/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Yasnippets for Org-mode
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../org-mode/literate-programming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Literate Programming
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../database-access/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Database
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            Database
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database-access/add-sql-layer-and-lsp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Add SQL Layer and LSP support
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database-access/connection-configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Configure connections
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database-access/external-dependencies/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SQL Layer External dependencies
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../database-access/using-sql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using SQL from Spacemacs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../termux/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Ultra-Mobile Termux
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            Ultra-Mobile Termux
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../termux/fdroid-install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    F-Droid
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../termux/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Termux Setup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../termux/using-termux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Using Termux
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../termux/git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../termux/custom-shell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Zsh
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../termux/clojure-development/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Clojure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../termux/spacemacs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spacemacs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../misc/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Misc
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            Misc
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/artist-mode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Artist Mode
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../misc/unicode-characters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unicode Characters
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Reference
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_13" id="__nav_13_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_13_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_13">
+            <span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../switch-to-develop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Switch to Spacemacs develop
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../emacs-quick-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Emacs Quick Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../spacemacs-conventions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Spacemacs Conventions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hydra-menus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hydra menus
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projectile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Projectile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cider/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cider reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cider/configuration-variables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cider configuration variables.
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../external-repl/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Clojure REPL
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_13_9" id="__nav_13_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_13_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13_9">
+            <span class="md-nav__icon md-icon"></span>
+            Clojure REPL
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../external-repl/connect-to-running-repl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Connect to a running Repl
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../external-repl/switching-to-repl/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Switching to the REPL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../external-repl/show-repl-on-connect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Show REPL Buffer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../external-repl/repl-command-menu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    REPL Command Menu
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../external-repl/repl-history/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    REPL History
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13_10" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../clojure/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Clojure Standard Library
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_13_10" id="__nav_13_10_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_13_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13_10">
+            <span class="md-nav__icon md-icon"></span>
+            Clojure Standard Library
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../clojure/control-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Control flow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../clojure/data-structures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data Structures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../clojure/functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Functions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../clojure/maths/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Maths
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../clojure/strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Strings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_13_11" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../clojure-lsp/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Clojure LSP
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_13_11" id="__nav_13_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_13_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_13_11">
+            <span class="md-nav__icon md-icon"></span>
+            Clojure LSP
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../clojure-lsp/lsp-variables-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    LSP Variables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Smartparens cheatsheet
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../keybindings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Reference: Keybindings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../keybindings/cider-keybindings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common CIDER default keybindings for Emacs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../keybindings/vim-keybindings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Useful Vim key bindings
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vim/getting-comfortable/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vim - Getting Comfortable
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vim/key-bindings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Evil Key Bindings Reference
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../os-specific-config/macosx/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MacOSX Specific configuration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_14" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../emacs-lisp/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Emacs
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_14" id="__nav_14_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_14_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_14">
+            <span class="md-nav__icon md-icon"></span>
+            Emacs
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../emacs-lisp/eshell/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Emacs Shell
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../encryption/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Encryption in Emacs - EasyPG Assistant
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../encryption/create-gpg-key/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating a gpg key
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../writing-emacs-lisp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Writing Emacs Lisp
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_15" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../alternative-tooling/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    Alternative Tools
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_15" id="__nav_15_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_15_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_15">
+            <span class="md-nav__icon md-icon"></span>
+            Alternative Tools
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../alternative-tooling/leiningen/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Leiningen
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../alternative-tooling/org-easy-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Org-mode Easy Templates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_16" >
+        
+          
+          <label class="md-nav__link" for="__nav_16" id="__nav_16_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    To Review
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_16_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_16">
+            <span class="md-nav__icon md-icon"></span>
+            To Review
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spacemacs-basics/vim-style/common-evil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Common Tasks using Evil vim-style editing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../introduction/why-spacemacs/why-evil/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Evil Vim Style Editing
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/practicalli/spacemacs/edit/main/docs/reference/structural-editing/smartparens-cheatsheet.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+    
+      
+    
+    <a href="https://github.com/practicalli/spacemacs/raw/main/docs/reference/structural-rawing/smartparens-cheatsheet.md" title="View source of this page" class="md-content__button md-icon">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
+    </a>
+  
+
+
+<h1 id="smartparens-cheatsheet">Smartparens cheatsheet<a class="headerlink" href="#smartparens-cheatsheet" title="Permanent link">λ︎</a></h1>
+<p><code>SPC SPC sp-cheat-sheet</code>  lists all the smartparens commands available</p>
+<div class="admonition hint">
+<p class="admonition-title">Animated cheatsheet</p>
+<p><a href="https://gist.github.com/pvik/8eb5755cc34da0226e3fc23a320a3c95">Animated Smartparens cheatsheet</a> - update to use Spacemacs keybindings</p>
+</div>
+<hr />
+<!--- TODO::Break out common commands into their own sections with examples --->
+
+<div class="highlight"><pre><span></span><code>(sp-cheat-sheet &amp;optional ARG)
+</code></pre></div>
+<p>Generate a cheat sheet of all the smartparens interactive functions.</p>
+<p>Without a prefix argument, print only the short documentation and examples.</p>
+<p>With non-nil prefix argument ARG, show the full documentation for each function.</p>
+<p>You can follow the links to the function or variable help page.
+To get back to the full list, use [.</p>
+<p>You can use ‘beginning-of-defun’ and ‘end-of-defun’ to jump to
+the previous/next entry.</p>
+<p>Examples are fontified using the ‘font-lock-string-face’ for
+better orientation.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<div class="highlight"><pre><span></span><code>(sp-describe-system)
+</code></pre></div>
+<p>Describe user’s system.</p>
+<p>The output of this function can be used in bug reports.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<div class="highlight"><pre><span></span><code>(smartparens-strict-mode &amp;optional ARG)
+</code></pre></div>
+<p>Toggle the strict smartparens mode.</p>
+<p>When strict mode is active, ‘delete-char’, ‘kill-word’ and their
+backward variants will skip over the pair delimiters in order to
+keep the structure always valid (the same way as ‘paredit-mode’
+does).  This is accomplished by remapping them to
+‘sp-delete-char’ and ‘sp-kill-word’.  There is also function
+‘sp-kill-symbol’ that deletes symbols instead of words, otherwise
+working exactly the same (it is not bound to any key by default).</p>
+<p>When strict mode is active, this is indicated with "/s"
+after the smartparens indicator in the mode list.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<div class="highlight"><pre><span></span><code>(smartparens-global-strict-mode &amp;optional ARG)
+</code></pre></div>
+<p>Toggle Smartparens-Strict mode in all buffers.
+With prefix ARG, enable Smartparens-Global-Strict mode if ARG is positive;
+otherwise, disable it.  If called from Lisp, enable the mode if
+ARG is omitted or nil.</p>
+<p>Smartparens-Strict mode is enabled in all buffers where
+‘turn-on-smartparens-strict-mode’ would do it.
+See ‘smartparens-strict-mode’ for more information on Smartparens-Strict mode.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<div class="highlight"><pre><span></span><code>(turn-on-smartparens-strict-mode)
+</code></pre></div>
+<p>Turn on ‘smartparens-strict-mode’.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<div class="highlight"><pre><span></span><code>(turn-off-smartparens-strict-mode)
+</code></pre></div>
+<p>Turn off ‘smartparens-strict-mode’.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-prefix-tag-object is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-prefix-tag-object &amp;optional ARG)
+</code></pre></div>
+<p>Read the command and invoke it on the next tag object.</p>
+<p>If you specify a regular emacs prefix argument this is passed to
+the executed command.  Therefore, executing
+"SPC u 2 M-x sp-prefix-tag-object M-x sp-forward-sexp" will move two tag
+expressions forward, ignoring possible symbols or paired
+expressions in between.</p>
+<p>Tag object is anything delimited by sgml tag.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-prefix-pair-object is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-prefix-pair-object &amp;optional ARG)
+</code></pre></div>
+<p>Read the command and invoke it on the next pair object.</p>
+<p>If you specify a regular emacs prefix argument this is passed to
+the executed command.  Therefore, executing
+"SPC u 2 M-x sp-prefix-pair-object M-x sp-forward-sexp" will move two paired
+expressions forward, ignoring possible symbols in between.</p>
+<p>Pair object is anything delimited by pairs from ‘sp-pair-list’.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-prefix-symbol-object is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-prefix-symbol-object &amp;optional ARG)
+</code></pre></div>
+<p>Read the command and invoke it on the next pair object.</p>
+<p>If you specify a regular emacs prefix argument this is passed to
+the executed command.  Therefore, executing
+"SPC u 2 M-x sp-prefix-symbol-object M-x sp-forward-sexp" will move two symbols
+forward, ignoring any structure.</p>
+<p>Symbol is defined as a chunk of text recognized by
+‘sp-forward-symbol’.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-prefix-save-excursion is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-prefix-save-excursion &amp;optional ARG)
+</code></pre></div>
+<p>Execute the command keeping the point fixed.</p>
+<p>If you specify a regular emacs prefix argument this is passed to
+the executed command.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-narrow-to-sexp is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-narrow-to-sexp ARG)
+</code></pre></div>
+<p>Make text outside current balanced expression invisible.
+A numeric arg specifies to move up by that many enclosing expressions.</p>
+<p>See also ‘narrow-to-region’ and ‘narrow-to-defun’.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-forward-sexp is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-forward-sexp &amp;optional ARG)
+</code></pre></div>
+<p>|(foo bar baz)   -&gt; (foo bar baz)|</p>
+<p>(|foo bar baz)   -&gt; (foo| bar baz)</p>
+<p>(|foo bar baz)   -&gt; (foo bar| baz) ;; 2</p>
+<p>(foo (bar baz|)) -&gt; (foo (bar baz)|)</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-backward-sexp is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-backward-sexp &amp;optional ARG)
+</code></pre></div>
+<p>(foo bar baz)|   -&gt; |(foo bar baz)</p>
+<p>(foo| bar baz)   -&gt; (|foo bar baz)</p>
+<p>(foo bar| baz)   -&gt; (|foo bar baz) ;; 2</p>
+<p>(|(foo bar) baz) -&gt; ((|foo bar) baz)</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-next-sexp is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-next-sexp &amp;optional ARG)
+</code></pre></div>
+<p>((foo) |bar (baz quux)) -&gt; ((foo) bar |(baz quux))</p>
+<p>((foo) bar |(baz quux)) -&gt; |((foo) bar (baz quux))</p>
+<p>and with non-nil ‘sp-navigate-interactive-always-progress-point’</p>
+<p>(f|oo bar) -&gt; (foo |bar)</p>
+<p>((fo|o) (bar)) -&gt; ((foo) |(bar))</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-previous-sexp is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-previous-sexp &amp;optional ARG)
+</code></pre></div>
+<p>((foo) bar| (baz quux)) -&gt; ((foo)| bar (baz quux))</p>
+<p>((foo)| bar (baz quux)) -&gt; ((foo) bar (baz quux))|</p>
+<p>and if ‘sp-navigate-interactive-always-progress-point’ is non-nil</p>
+<p>(foo b|ar baz) -&gt; (foo| bar baz)</p>
+<p>(foo (b|ar baz)) -&gt; (foo| (bar baz))</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-forward-parallel-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-forward-parallel-sexp &amp;optional ARG)
+</code></pre></div>
+<p>Move forward across one balanced expressions at the same depth.</p>
+<p>If calling ‘sp-forward-sexp’ at point would result in raising a
+level up, loop back to the first expression at current level,
+that is the first child of the enclosing sexp as defined by
+‘sp-get-enclosing-sexp’.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-backward-parallel-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-backward-parallel-sexp &amp;optional ARG)
+</code></pre></div>
+<p>Move backward across one balanced expressions at the same depth.</p>
+<p>If calling ‘sp-backward-sexp’ at point would result in raising a
+level up, loop back to the last expression at current level, that
+is the last child of the enclosing sexp as defined by
+‘sp-get-enclosing-sexp’.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-down-sexp is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-down-sexp &amp;optional ARG)
+</code></pre></div>
+<p>|foo (bar (baz quux)) -&gt; foo (|bar (baz quux))</p>
+<p>|foo (bar (baz quux)) -&gt; foo (bar (|baz quux)) ;; 2</p>
+<p>|foo (bar (baz (quux) blab)) -&gt; foo (bar (baz (|quux) blab)) ;; SPC u</p>
+<p>(foo (bar baz) |quux) -&gt; (|foo (bar baz) quux)</p>
+<p>(blab foo |(bar baz) quux) -&gt; (|blab foo (bar baz) quux) ;; SPC u SPC u</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-backward-down-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-backward-down-sexp &amp;optional ARG)
+</code></pre></div>
+<p>foo (bar (baz quux))| -&gt; foo (bar (baz quux)|)</p>
+<p>(bar (baz quux)) foo| -&gt; (bar (baz quux|)) foo ;; 2</p>
+<p>foo (bar (baz (quux) blab))| -&gt; foo (bar (baz (quux|) blab)) ;; SPC u</p>
+<p>(foo| (bar baz) quux) -&gt; (foo (bar baz) quux|)</p>
+<p>(foo (bar baz) |quux blab) -&gt; (foo (bar baz) quux blab|) ;; SPC u SPC u</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-beginning-of-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-beginning-of-sexp &amp;optional ARG)
+</code></pre></div>
+<p>(foo (bar baz) quux| (blab glob)) -&gt; (|foo (bar baz) quux (blab glob))</p>
+<p>(foo (bar baz|) quux (blab glob)) -&gt; (foo (|bar baz) quux (blab glob))</p>
+<p>(|foo) (bar) (baz quux) -&gt; (foo) (bar) (|baz quux) ;; 3</p>
+<p>(foo bar) (baz) (quux|) -&gt; (|foo bar) (baz) (quux) ;; -3</p>
+<p>((foo bar) (baz |quux) blab) -&gt; (|(foo bar) (baz quux) blab) ;; SPC u</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-end-of-sexp is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-end-of-sexp &amp;optional ARG)
+</code></pre></div>
+<p>(foo |(bar baz) quux (blab glob)) -&gt; (foo (bar baz) quux (blab glob)|)</p>
+<p>(foo (|bar baz) quux (blab glob)) -&gt; (foo (bar baz|) quux (blab glob))</p>
+<p>(|foo) (bar) (baz quux) -&gt; (foo) (bar) (baz quux|) ;; 3</p>
+<p>(foo bar) (baz) (quux|) -&gt; (foo bar|) (baz) (quux) ;; -3</p>
+<p>((foo |bar) (baz quux) blab) -&gt; ((foo bar) (baz quux) blab|) ;; SPC u</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-beginning-of-next-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-beginning-of-next-sexp &amp;optional ARG)
+</code></pre></div>
+<p>(f|oo) (bar) (baz) -&gt; (foo) (|bar) (baz)</p>
+<p>(f|oo) (bar) (baz) -&gt; (foo) (bar) (|baz) ;; 2</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-beginning-of-previous-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-beginning-of-previous-sexp &amp;optional ARG)
+</code></pre></div>
+<p>(foo) (b|ar) (baz) -&gt; (|foo) (bar) (baz)</p>
+<p>(foo) (bar) (b|az) -&gt; (|foo) (bar) (baz) ;; 2</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-end-of-next-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-end-of-next-sexp &amp;optional ARG)
+</code></pre></div>
+<p>(f|oo) (bar) (baz) -&gt; (foo) (bar|) (baz)</p>
+<p>(f|oo) (bar) (baz) -&gt; (foo) (bar) (baz|) ;; 2</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-end-of-previous-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-end-of-previous-sexp &amp;optional ARG)
+</code></pre></div>
+<p>(foo) (b|ar) (baz) -&gt; (foo|) (bar) (baz)</p>
+<p>(foo) (bar) (b|az) -&gt; (foo|) (bar) (baz) ;; 2</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-up-sexp is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-up-sexp &amp;optional ARG INTERACTIVE)
+</code></pre></div>
+<p>(foo |(bar baz) quux blab) -&gt; (foo (bar baz) quux blab)|</p>
+<p>(foo (bar |baz) quux blab) -&gt; (foo (bar baz) quux blab)| ;; 2</p>
+<p>(foo bar |baz              -&gt; (foo bar baz)| ;; re-indent the expression
+​   )</p>
+<p>(foo  |(bar baz)           -&gt; (foo)| (bar baz) ;; close unbalanced expr.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-backward-up-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-backward-up-sexp &amp;optional ARG INTERACTIVE)
+</code></pre></div>
+<p>(foo (bar baz) quux| blab) -&gt; |(foo (bar baz) quux blab)</p>
+<p>(foo (bar |baz) quux blab) -&gt; |(foo (bar baz) quux blab) ;; 2</p>
+<p>(                  -&gt; |(foo bar baz)
+​    foo |bar baz)</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp--kill-or-copy-region is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp--kill-or-copy-region BEG END &amp;optional DONT-KILL)
+</code></pre></div>
+<p>Kill or copy region between BEG and END according to DONT-KILL.
+If ‘evil-mode’ is active, copying a region will also add it to the 0 register.
+Additionally, if command was prefixed with a register, copy the region
+to that register.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-kill-sexp is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-kill-sexp &amp;optional ARG DONT-KILL)
+</code></pre></div>
+<p>(foo |(abc) bar)  -&gt; (foo | bar) ;; nil, defaults to 1</p>
+<p>(foo (bar) | baz) -&gt; |           ;; 2</p>
+<p>(foo |(bar) baz)  -&gt; |           ;; SPC u SPC u</p>
+<p>(1 |2 3 4 5 6)    -&gt; (1|)        ;; SPC u</p>
+<p>(1 |2 3 4 5 6)    -&gt; (1 | 5 6)   ;; 3</p>
+<p>(1 2 3 4 5| 6)    -&gt; (1 2 3 | 6) ;; -2</p>
+<p>(1 2 3 4| 5 6)    -&gt; (|5 6)      ;; - SPC u</p>
+<p>(1 2 |   )        -&gt; (1 2|)      ;; SPC u, kill useless whitespace</p>
+<p>(1 2 3 |4 5 6)    -&gt; (|)         ;; 0</p>
+<p>Note: prefix argument is shown after the example in
+"comment". Assumes ‘sp-navigate-consider-symbols’ equal to t.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-backward-kill-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-backward-kill-sexp &amp;optional ARG DONT-KILL)
+</code></pre></div>
+<p>(foo (abc)| bar)           -&gt; (foo | bar)</p>
+<p>blab (foo (bar baz) quux)| -&gt; blab |</p>
+<p>(1 2 3 |4 5 6)             -&gt; (|4 5 6) ;; SPC u</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-copy-sexp is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-copy-sexp &amp;optional ARG)
+</code></pre></div>
+<p>Copy the following ARG expressions to the kill-ring.</p>
+<p>This is exactly like calling ‘sp-kill-sexp’ with second argument
+t.  All the special prefix arguments work the same way.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-backward-copy-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-backward-copy-sexp &amp;optional ARG)
+</code></pre></div>
+<p>Copy the previous ARG expressions to the kill-ring.</p>
+<p>This is exactly like calling ‘sp-backward-kill-sexp’ with second argument
+t.  All the special prefix arguments work the same way.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-clone-sexp is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-clone-sexp)
+</code></pre></div>
+<p>Clone sexp after or around point.</p>
+<p>If the form immediately after point is a sexp, clone it below the
+current one and put the point in front of it.</p>
+<p>Otherwise get the enclosing sexp and clone it below the current
+enclosing sexp.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-kill-hybrid-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-kill-hybrid-sexp ARG)
+</code></pre></div>
+<p>foo | bar baz               -&gt; foo |               ;; nil</p>
+<p>foo (bar | baz) quux        -&gt; foo (bar |) quux    ;; nil</p>
+<p>foo | bar (baz              -&gt; foo |               ;; nil
+             quux)</p>
+<p>foo "bar |baz quux" quack   -&gt; foo "bar |" quack   ;; nil</p>
+<p>foo (bar
+       baz) qu|ux (quack      -&gt;   foo | hoo         ;; SPC u SPC u
+                   zaq) hoo</p>
+<p>foo | (bar                  -&gt; foo |               ;; C-0
+         baz)                          baz)</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-kill-whole-line is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-kill-whole-line)
+</code></pre></div>
+<p>(progn                    (progn
+    (some |long sexp))  -&gt;    |)</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-transpose-sexp is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-transpose-sexp &amp;optional ARG)
+</code></pre></div>
+<p>foo |bar baz     -&gt; bar foo| baz</p>
+<p>foo |bar baz     -&gt; bar baz foo| ;; 2</p>
+<p>(foo) |(bar baz) -&gt; (bar baz) (foo)|</p>
+<p>(foo bar)        -&gt;    (baz quux)   ;; keeps the formatting
+​    |(baz quux)            |(foo bar)</p>
+<p>foo bar baz|     -&gt; foo baz| bar ;; -1</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-transpose-hybrid-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-transpose-hybrid-sexp &amp;optional ARG)
+</code></pre></div>
+<p>foo bar            baz (quux
+  |baz (quux   -&gt;         quack)
+        quack)       foo bar\n|</p>
+<p>[(foo) (bar) -&gt; [(baz)
+  |(baz)]          (foo) (bar)|]</p>
+<p>foo bar baz  -&gt; quux flux
+  |quux flux      foo bar baz\n|</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-push-hybrid-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-push-hybrid-sexp)
+</code></pre></div>
+<p>|x = big_function_call(a,    |(a,
+                         b)      b) = read_user_input()
+                           -&gt;
+  (a,                          x = big_function_call(a,
+   b) = read_user_input()                            b)</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-indent-adjust-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-indent-adjust-sexp)
+</code></pre></div>
+<p>Add the hybrid sexp at line into previous sexp.  All forms
+between the two are also inserted.  Specifically, if the point is
+on empty line, move the closing delimiter there, so the next
+typed text will become the last item of the previous sexp.</p>
+<p>This acts similarly to ‘sp-add-to-previous-sexp’ but with special
+handling of empty lines.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-dedent-adjust-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-dedent-adjust-sexp)
+</code></pre></div>
+<p>Remove the hybrid sexp at line from previous sexp.  All
+sibling forms after it are also removed (not deleted, just placed
+outside of the enclosing list).  Specifically, if the point is on
+empty line followed by closing delimiter of enclosing list, move
+the closing delimiter after the last item in the list.</p>
+<p>This acts similarly to ‘sp-forward-barf-sexp’ but with special
+handling of empty lines.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-slurp-hybrid-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-slurp-hybrid-sexp)
+</code></pre></div>
+<p>Add hybrid sexp following the current list in it by moving the
+closing delimiter.</p>
+<p>This is philosophically similar to ‘sp-forward-slurp-sexp’ but
+works better in "line-based" languages like C or Java.</p>
+<p>Because the structure is much looser in these languages, this
+command currently does not support all the prefix argument
+triggers that ‘sp-forward-slurp-sexp’ does.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-forward-slurp-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<p>It is bound to C-).</p>
+<div class="highlight"><pre><span></span><code>(sp-forward-slurp-sexp &amp;optional ARG)
+</code></pre></div>
+<p>(foo |bar) baz        -&gt; (foo |bar baz)</p>
+<p>[(foo |bar)] baz      -&gt; [(foo |bar) baz]</p>
+<p>[(foo |bar) baz]      -&gt; [(foo |bar baz)]</p>
+<p>((|foo) bar baz quux) -&gt; ((|foo bar baz quux)) ;; with SPC u</p>
+<p>"foo| bar" "baz quux" -&gt; "foo| bar baz quux"</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-backward-slurp-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<p>It is bound to C-(.</p>
+<div class="highlight"><pre><span></span><code>(sp-backward-slurp-sexp &amp;optional ARG)
+</code></pre></div>
+<p>foo (bar| baz)        -&gt; (foo bar| baz)</p>
+<p>foo [(bar| baz)]      -&gt; [foo (bar| baz)]</p>
+<p>[foo (bar| baz)]      -&gt; [(foo bar| baz)]</p>
+<p>(foo bar baz (|quux)) -&gt; ((foo bar baz |quux)) ;; with SPC u</p>
+<p>"foo bar" "baz |quux" -&gt; "foo bar baz |quux"</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-add-to-previous-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-add-to-previous-sexp &amp;optional ARG)
+</code></pre></div>
+<p>(foo bar) |baz quux        -&gt; (foo bar |baz) quux</p>
+<p>(foo bar) |baz quux        -&gt; (foo bar |baz quux) ;; 2</p>
+<p>(blab (foo bar) |baz quux) -&gt; (blab (foo bar |baz quux)) ;; SPC u</p>
+<p>(foo bar) (baz |quux)      -&gt; (foo bar (baz |quux)) ;; SPC u SPC u</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-add-to-next-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-add-to-next-sexp &amp;optional ARG)
+</code></pre></div>
+<p>foo bar| (baz quux)        -&gt; foo (bar| baz quux)</p>
+<p>foo bar| (baz quux)        -&gt; (foo bar| baz quux) ;; 2</p>
+<p>(foo bar |(bar quux) blab) -&gt; ((foo bar |bar quux) blab) ;; SPC u</p>
+<p>(foo |bar) (baz quux)      -&gt; ((foo |bar) baz quux) ;; SPC u SPC u</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-forward-barf-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<p>It is bound to M-).</p>
+<div class="highlight"><pre><span></span><code>(sp-forward-barf-sexp &amp;optional ARG)
+</code></pre></div>
+<p>(foo bar| baz)   -&gt; (foo bar|) baz   ;; nil (defaults to 1)</p>
+<p>(foo| [bar baz]) -&gt; (foo|) [bar baz] ;; 1</p>
+<p>(1 2 3| 4 5 6)   -&gt; (1 2 3|) 4 5 6   ;; SPC u (or numeric prefix 3)</p>
+<p>(foo bar| baz)   -&gt; foo (bar| baz)   ;; -1</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-backward-barf-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<p>It is bound to M-(.</p>
+<div class="highlight"><pre><span></span><code>(sp-backward-barf-sexp &amp;optional ARG)
+</code></pre></div>
+<p>(foo bar| baz) -&gt; foo (bar| baz)</p>
+<p>([foo bar] |baz) -&gt; [foo bar] (|baz)</p>
+<p>(1 2 3 |4 5 6) -&gt; 1 2 3 (|4 5 6) ;; SPC u (or 3)</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-skip-forward-to-symbol is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-skip-forward-to-symbol &amp;optional STOP-AT-STRING STOP-AFTER-STRING
+STOP-INSIDE-STRING)
+</code></pre></div>
+<p>foo|   bar -&gt; foo   |bar</p>
+<p>foo|   [bar baz] -&gt; foo   |[bar baz]</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-skip-backward-to-symbol is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-skip-backward-to-symbol &amp;optional STOP-AT-STRING STOP-AFTER-STRING
+STOP-INSIDE-STRING)
+</code></pre></div>
+<p>foo   |bar -&gt; foo|   bar</p>
+<p>[bar baz]   |foo -&gt; [bar baz]|   foo</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-forward-symbol is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-forward-symbol &amp;optional ARG)
+</code></pre></div>
+<p>|foo bar baz          -&gt; foo| bar baz</p>
+<p>|foo (bar (baz))      -&gt; foo (bar| (baz)) ;; 2</p>
+<p>|foo (bar (baz) quux) -&gt; foo (bar (baz) quux|) ;; 4</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-backward-symbol is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-backward-symbol &amp;optional ARG)
+</code></pre></div>
+<p>foo bar| baz            -&gt; foo |bar baz</p>
+<p>((foo bar) baz)|        -&gt; ((foo |bar) baz) ;; 2</p>
+<p>(quux ((foo) bar) baz)| -&gt; (|quux ((foo) bar) baz) ;; 4</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-rewrap-sexp is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-rewrap-sexp PAIR &amp;optional KEEP-OLD)
+</code></pre></div>
+<p>(foo |bar baz) -&gt; [foo |bar baz]   ;; [</p>
+<p>(foo |bar baz) -&gt; [(foo |bar baz)] ;; SPC u [</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-swap-enclosing-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-swap-enclosing-sexp &amp;optional ARG)
+</code></pre></div>
+<p>(foo [|bar] baz)              -&gt; [foo (|bar) baz] ;; 1</p>
+<p>(foo {bar [|baz] quux} quack) -&gt; [foo {bar (|baz) quux} quack] ;; 2</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-change-inner is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<div class="highlight"><pre><span></span><code>(sp-change-inner)
+</code></pre></div>
+<p>(f|oo [bar] baz) -&gt; (foo [|] baz)</p>
+<p>{|’foo’: ’bar’}  -&gt; {’|’: ’bar’}</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-unwrap-sexp is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<p>(sp-unwrap-sexp &amp;optional ARG)</p>
+<p>|(foo bar baz)     -&gt; |foo bar baz</p>
+<p>(foo bar| baz)     -&gt; foo bar| baz</p>
+<p>|(foo) (bar) (baz) -&gt; |(foo) bar (baz) ;; 2</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-backward-unwrap-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<p>(sp-backward-unwrap-sexp &amp;optional ARG)</p>
+<p>(foo bar baz)|     -&gt; foo bar baz|</p>
+<p>(foo bar)| (baz)   -&gt; foo bar| (baz)</p>
+<p>(foo) (bar) (baz)| -&gt; foo (bar) (baz) ;; 3</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-splice-sexp is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<p>(sp-splice-sexp &amp;optional ARG)</p>
+<p>(foo (bar| baz) quux) -&gt; (foo bar| baz quux)</p>
+<p>(foo |(bar baz) quux) -&gt; foo |(bar baz) quux</p>
+<p>(foo (bar| baz) quux) -&gt; foo (bar| baz) quux ;; 2</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-splice-sexp-killing-backward is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<p>(sp-splice-sexp-killing-backward &amp;optional ARG)</p>
+<p>(foo (let ((x 5)) |(sqrt n)) bar)  -&gt; (foo |(sqrt n) bar)</p>
+<p>​  (when ok|                             |(perform-operation-1)
+​    (perform-operation-1)            -&gt;  (perform-operation-2)
+​    (perform-operation-2))</p>
+<p>​  (save-excursion                    -&gt; |(awesome-stuff-happens) ;; 2
+​    (unless (test)
+​      |(awesome-stuff-happens)))</p>
+<p>Note that to kill only the content and not the enclosing
+delimiters you can use SPC u M-x sp-backward-kill-sexp.
+See ‘sp-backward-kill-sexp’ for more information.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-splice-sexp-killing-forward is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<p>(sp-splice-sexp-killing-forward &amp;optional ARG)</p>
+<p>(a (b c| d e) f) -&gt; (a b c| f)</p>
+<p>(+ (x |y z) w)   -&gt; (+ x| w)</p>
+<p>Note that to kill only the content and not the enclosing
+delimiters you can use SPC u M-x sp-kill-sexp.
+See ‘sp-kill-sexp’ for more information.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-raise-sexp is an alias for ‘sp-splice-sexp-killing-around’ in
+‘smartparens.el’.</p>
+<p>(sp-raise-sexp &amp;optional ARG)</p>
+<p>(a b |(c d) e f)      -&gt; |(c d)     ;; with arg = 1</p>
+<p>(a b |c d e f)        -&gt; |c d       ;; with arg = 2</p>
+<p>(- (car x) |a 3)      -&gt; (car x)|   ;; with arg = -1</p>
+<p>(foo (bar |baz) quux) -&gt; |(bar baz) ;; with arg = SPC u SPC u</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-convolute-sexp is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<p>(sp-convolute-sexp &amp;optional ARG)</p>
+<p>We want to move the ‘while’ before the ‘let’.</p>
+<p>​  (let ((stuff 1)             (while (we-are-good)
+​        (other 2))              (let ((stuff 1)
+​    (while (we-are-good)  -&gt;          (other 2))
+​     |(do-thing 1)               |(do-thing 1)
+​      (do-thing 2)                (do-thing 2)
+​      (do-thing 3)))              (do-thing 3)))</p>
+<p>(forward-char (sp-get env |:op-l)) -&gt; (sp-get env (forward-char |:op-l))</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-absorb-sexp is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<p>(sp-absorb-sexp &amp;optional ARG)</p>
+<p>​  (do-stuff 1)         (save-excursion
+​  (save-excursion  -&gt;   |(do-stuff 1)
+​   |(do-stuff 2))        (do-stuff 2))</p>
+<p>foo bar (concat |baz quux) -&gt; (concat |foo bar baz quux) ;; 2</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-emit-sexp is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<p>(sp-emit-sexp &amp;optional ARG)</p>
+<p>​  (save-excursion     ​(do-stuff 1)
+​    (do-stuff 1)      (do-stuff 2)
+​    (do-stuff 2)  -&gt;  (save-excursion
+​   |(do-stuff 3))      |(do-stuff 3))</p>
+<p>​  (while not-done-yet       (execute-only-once)
+​    (execute-only-once) -&gt;  (while not-done-yet    ;; arg = 2
+​   |(execute-in-loop))       |(execute-in-loop))</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-extract-before-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<p>(sp-extract-before-sexp &amp;optional ARG)</p>
+<p>Move the expression after point before the enclosing balanced expression.</p>
+<p>The point moves with the extracted expression.</p>
+<p>With ARG positive N, extract N expressions after point.</p>
+<p>With ARG negative -N, extract N expressions before point.</p>
+<p>With ARG being raw prefix argument SPC u, extract all the expressions
+up until the end of enclosing list.</p>
+<p>If the raw prefix is negative, this behaves as SPC u ‘sp-backward-barf-sexp’.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-extract-after-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<p>(sp-extract-after-sexp &amp;optional ARG)</p>
+<p>Move the expression after point after the enclosing balanced expression.</p>
+<p>The point moves with the extracted expression.</p>
+<p>With ARG positive N, extract N expressions after point.</p>
+<p>With ARG negative -N, extract N expressions before point.</p>
+<p>With ARG being raw prefix argument SPC u, extract all the
+expressions up until the end of enclosing list.</p>
+<p>With ARG being negative raw prefix argument M-- SPC u, extract all the
+expressions up until the start of enclosing list.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-forward-whitespace is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<p>(sp-forward-whitespace &amp;optional ARG)</p>
+<p>Skip forward past the whitespace characters.
+With non-nil ARG return number of characters skipped.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-backward-whitespace is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<p>(sp-backward-whitespace &amp;optional ARG)</p>
+<p>Skip backward past the whitespace characters.
+With non-nil ARG return number of characters skipped.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-split-sexp is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<p>It is bound to SPC j s, M-m j s.</p>
+<p>(sp-split-sexp ARG)</p>
+<p>(foo bar |baz quux)   -&gt; (foo bar) |(baz quux)</p>
+<p>"foo bar |baz quux"   -&gt; "foo bar" |"baz quux"</p>
+<p>([foo |bar baz] quux) -&gt; ([foo] |[bar baz] quux)</p>
+<p>(foo bar| baz quux) -&gt; (foo) (bar|) (baz) (quux) ;; SPC u</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-join-sexp is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<p>(sp-join-sexp &amp;optional ARG)</p>
+<p>(foo bar) |(baz)                    -&gt; (foo bar |baz)</p>
+<p>(foo) |(bar) (baz)                  -&gt; (foo |bar baz) ;; 2</p>
+<p>[foo] [bar] |[baz]                  -&gt; [foo bar |baz] ;; -2</p>
+<p>(foo bar (baz)| (quux) (blob buzz)) -&gt; (foo bar (baz| quux blob buzz)) ;; SPC u</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-select-next-thing is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<p>(sp-select-next-thing &amp;optional ARG POINT)</p>
+<p>Set active region over next thing as recognized by ‘sp-get-thing’.</p>
+<p>If ARG is positive N, select N expressions forward.</p>
+<p>If ARG is negative -N, select N expressions backward.</p>
+<p>If ARG is a raw prefix SPC u select all the things up until the
+end of current expression.</p>
+<p>If ARG is a raw prefix SPC u SPC u select the current expression (as
+if doing ‘sp-backward-up-sexp’ followed by
+‘sp-select-next-thing’).</p>
+<p>If ARG is number 0 (zero), select all the things inside the
+current expression.</p>
+<p>If POINT is non-nil, it is assumed it’s a point inside the buffer
+from which the selection extends, either forward or backward,
+depending on the value of ARG.</p>
+<p>If the currently active region contains a balanced expression,
+following invocation of ‘sp-select-next-thing’ will select the
+inside of this expression .  Therefore calling this function
+twice with no active region will select the inside of the next
+expression.</p>
+<p>If the point is right in front of the expression any potential
+prefix is ignored.  For example, ’|(foo) would only select (foo)
+and not include ’ in the selection.  If you wish to also select
+the prefix, you have to move the point backwards.</p>
+<p>With ‘sp-navigate-consider-symbols’ symbols and strings are also
+considered balanced expressions.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-select-previous-thing is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<p>(sp-select-previous-thing &amp;optional ARG POINT)</p>
+<p>Set active region over ARG previous things as recognized by ‘sp-get-thing’.</p>
+<p>If ARG is negative -N, select that many expressions forward.</p>
+<p>With ‘sp-navigate-consider-symbols’ symbols and strings are also
+considered balanced expressions.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-select-next-thing-exchange is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<p>(sp-select-next-thing-exchange &amp;optional ARG POINT)</p>
+<p>Just like ‘sp-select-next-thing’ but run ‘exchange-point-and-mark’ afterwards.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-select-previous-thing-exchange is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<p>(sp-select-previous-thing-exchange &amp;optional ARG POINT)</p>
+<p>Just like ‘sp-select-previous-thing’ but run ‘exchange-point-and-mark’ afterwards.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-mark-sexp is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<p>(sp-mark-sexp &amp;optional ARG ALLOW-EXTEND)</p>
+<p>Set mark ARG balanced expressions from point.
+The place mark goes is the same place M-x sp-forward-sexp would
+move to with the same argument.
+Interactively, if this command is repeated
+or (in Transient Mark mode) if the mark is active,
+it marks the next ARG sexps after the ones already marked.
+This command assumes point is not in a string or comment.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-delete-char is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<p>(sp-delete-char &amp;optional ARG)</p>
+<p>(quu|x "zot") -&gt; (quu| "zot")</p>
+<p>(quux |"zot") -&gt; (quux "|zot") -&gt; (quux "|ot")</p>
+<p>(foo (|) bar) -&gt; (foo | bar)</p>
+<p>|(foo bar) -&gt; (|foo bar)</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-backward-delete-char is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<p>(sp-backward-delete-char &amp;optional ARG)</p>
+<p>("zot" q|uux) -&gt; ("zot" |uux)</p>
+<p>("zot"| quux) -&gt; ("zot|" quux) -&gt; ("zo|" quux)</p>
+<p>(foo (|) bar) -&gt; (foo | bar)</p>
+<p>(foo bar)| -&gt; (foo bar|)</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-kill-symbol is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<p>(sp-kill-symbol &amp;optional ARG WORD)</p>
+<p>Kill a symbol forward, skipping over any intervening delimiters.</p>
+<p>With ARG being positive number N, repeat that many times.</p>
+<p>With ARG being Negative number -N, repeat that many times in
+backward direction.</p>
+<p>See ‘sp-forward-symbol’ for what constitutes a symbol.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-kill-word is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<p>(sp-kill-word &amp;optional ARG)</p>
+<p>Kill a word forward, skipping over intervening delimiters.</p>
+<p>With ARG being positive number N, repeat that many times.</p>
+<p>With ARG being Negative number -N, repeat that many times in
+backward direction.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-delete-symbol is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<p>(sp-delete-symbol &amp;optional ARG WORD)</p>
+<p>Delete a symbol forward, skipping over any intervening delimiters.</p>
+<p>Deleted symbol does not go to the clipboard or kill ring.</p>
+<p>With ARG being positive number N, repeat that many times.</p>
+<p>With ARG being Negative number -N, repeat that many times in
+backward direction.</p>
+<p>See ‘sp-forward-symbol’ for what constitutes a symbol.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-delete-word is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<p>(sp-delete-word &amp;optional ARG)</p>
+<p>Delete a word forward, skipping over intervening delimiters.</p>
+<p>Deleted word does not go to the clipboard or kill ring.</p>
+<p>With ARG being positive number N, repeat that many times.</p>
+<p>With ARG being Negative number -N, repeat that many times in
+backward direction.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-backward-kill-symbol is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<p>(sp-backward-kill-symbol &amp;optional ARG WORD)</p>
+<p>Kill a symbol backward, skipping over any intervening delimiters.</p>
+<p>With ARG being positive number N, repeat that many times.</p>
+<p>With ARG being Negative number -N, repeat that many times in
+forward direction.</p>
+<p>See ‘sp-backward-symbol’ for what constitutes a symbol.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-backward-kill-word is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<p>(sp-backward-kill-word &amp;optional ARG)</p>
+<p>Kill a word backward, skipping over intervening delimiters.</p>
+<p>With ARG being positive number N, repeat that many times.</p>
+<p>With ARG being Negative number -N, repeat that many times in
+backward direction.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-backward-delete-symbol is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<p>(sp-backward-delete-symbol &amp;optional ARG WORD)</p>
+<p>Delete a symbol backward, skipping over any intervening delimiters.</p>
+<p>Deleted symbol does not go to the clipboard or kill ring.</p>
+<p>With ARG being positive number N, repeat that many times.</p>
+<p>With ARG being Negative number -N, repeat that many times in
+forward direction.</p>
+<p>See ‘sp-backward-symbol’ for what constitutes a symbol.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-backward-delete-word is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<p>(sp-backward-delete-word &amp;optional ARG)</p>
+<p>Delete a word backward, skipping over intervening delimiters.</p>
+<p>Deleted word does not go to the clipboard or kill ring.</p>
+<p>With ARG being positive number N, repeat that many times.</p>
+<p>With ARG being Negative number -N, repeat that many times in
+backward direction.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-delete-region is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<p>(sp-delete-region BEG END)</p>
+<p>Delete the text between point and mark, like ‘delete-region’.</p>
+<p>BEG and END are the bounds of region to be deleted.</p>
+<p>If that text is unbalanced, signal an error instead.
+With a prefix argument, skip the balance check.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-kill-region is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<p>(sp-kill-region BEG END)</p>
+<p>Kill the text between point and mark, like ‘kill-region’.</p>
+<p>BEG and END are the bounds of region to be killed.</p>
+<p>If that text is unbalanced, signal an error instead.
+With a prefix argument, skip the balance check.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-indent-defun is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<p>(sp-indent-defun &amp;optional ARG)</p>
+<p>Re-indent the current defun.</p>
+<p>If point is inside a string or comment, fill the current
+paragraph instead, and with ARG, justify as well.</p>
+<p>Otherwise, re-indent the current defun, and adjust the position
+of the point.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-region-ok-p is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<p>(sp-region-ok-p START END)</p>
+<p>Test if region between START and END is balanced.</p>
+<p>A balanced region is one where all opening delimiters are matched
+by closing delimiters.</p>
+<p>This function does <em>not</em> check that the delimiters are correctly
+ordered, that is [(]) is correct even though it is not logically
+properly balanced.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-newline is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<p>It is bound to SPC j n, M-m j n.</p>
+<p>(sp-newline)</p>
+<p>Insert a newline and indent it.</p>
+<p>This is like ‘newline-and-indent’, but it not only indents the
+line that the point is on but also the S-expression following the
+point, if there is one.</p>
+<p>If in a string, just insert a literal newline.</p>
+<p>If in a comment and if followed by invalid structure, call
+‘indent-new-comment-line’ to keep the invalid structure in a
+comment.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-comment is an interactive compiled Lisp function in ‘smartparens.el’.</p>
+<p>(sp-comment)</p>
+<p>Insert the comment character and adjust hanging sexps such
+  that it doesn’t break structure.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-show-enclosing-pair is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<p>(sp-show-enclosing-pair)</p>
+<p>Highlight the enclosing pair around point.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+<p>sp-highlight-current-sexp is an interactive compiled Lisp function in
+‘smartparens.el’.</p>
+<p>(sp-highlight-current-sexp ARG)</p>
+<p>Highlight the expression returned by the next command, preserving point position.</p>
+<p>――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――</p>
+
+
+
+
+
+
+
+  
+    
+  
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="May 28, 2025 22:51:31 UTC">May 28, 2025</span>
+  </span>
+
+    
+    
+    
+    
+  </aside>
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../clojure-lsp/lsp-variables-reference/" class="md-footer__link md-footer__link--prev" aria-label="Previous: LSP Variables">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                LSP Variables
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../keybindings/" class="md-footer__link md-footer__link--next" aria-label="Next: Reference: Keybindings">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Reference: Keybindings
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy 2023  Practicali <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://practical.li/" target="_blank" rel="noopener" title="practical.li" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2m-5.15 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56M14.34 14H9.66c-.1-.66-.16-1.32-.16-2s.06-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2M12 19.96c-.83-1.2-1.5-2.53-1.91-3.96h3.82c-.41 1.43-1.08 2.76-1.91 3.96M8 8H5.08A7.92 7.92 0 0 1 9.4 4.44C8.8 5.55 8.35 6.75 8 8m-2.92 8H8c.35 1.25.8 2.45 1.4 3.56A8 8 0 0 1 5.08 16m-.82-2C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2M12 4.03c.83 1.2 1.5 2.54 1.91 3.97h-3.82c.41-1.43 1.08-2.77 1.91-3.97M18.92 8h-2.95a15.7 15.7 0 0 0-1.38-3.56c1.84.63 3.37 1.9 4.33 3.56M12 2C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/jr0cket/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://clojurians.slack.com/messages/practicalli" target="_blank" rel="noopener" title="clojurians.slack.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M94.12 315.1c0 25.9-21.16 47.06-47.06 47.06S0 341 0 315.1s21.16-47.06 47.06-47.06h47.06zm23.72 0c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06v117.84c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06zm47.06-188.98c-25.9 0-47.06-21.16-47.06-47.06S139 32 164.9 32s47.06 21.16 47.06 47.06v47.06zm0 23.72c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06H47.06C21.16 243.96 0 222.8 0 196.9s21.16-47.06 47.06-47.06zm188.98 47.06c0-25.9 21.16-47.06 47.06-47.06S448 171 448 196.9s-21.16 47.06-47.06 47.06h-47.06zm-23.72 0c0 25.9-21.16 47.06-47.06 47.06s-47.06-21.16-47.06-47.06V79.06c0-25.9 21.16-47.06 47.06-47.06s47.06 21.16 47.06 47.06zM283.1 385.88c25.9 0 47.06 21.16 47.06 47.06S309 480 283.1 480s-47.06-21.16-47.06-47.06v-47.06zm0-23.72c-25.9 0-47.06-21.16-47.06-47.06s21.16-47.06 47.06-47.06h117.84c25.9 0 47.06 21.16 47.06 47.06s-21.16 47.06-47.06 47.06z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/practical_li" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/practicalli" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://hub.docker.com/u/practicalli" target="_blank" rel="noopener" title="hub.docker.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M349.9 236.3h-66.1v-59.4h66.1zm0-204.3h-66.1v60.7h66.1zm78.2 144.8H362v59.4h66.1zm-156.3-72.1h-66.1v60.1h66.1zm78.1 0h-66.1v60.1h66.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1zm78.1 0h-66.1v59.4h66.1zm-78.1-72.1h-66.1v60.1h66.1z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "content.tabs.link", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.top", "navigation.tracking"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
